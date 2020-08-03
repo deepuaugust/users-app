@@ -28,7 +28,16 @@ function* fetchUserList(endPoint, {}) {
 async function fetchCsvData(endPoint) {
   let csvData = await fetchCsv(endPoint);
   const userList = Papa.parse(csvData);
-  return userList.data;
+  let userData = userList.data.map((item) => ({
+    id: item[0],
+    fname: item[1],
+    lname: item[2],
+    email: item[3],
+    gender: item[4],
+    phone: item[5],
+  }));
+  userData = userData.filter(item => !isNaN(Number(item.id)) && item.id !== "");
+  return userData;
 }
 
 /**

@@ -49,22 +49,11 @@ class UserDetail extends Component {
   render() {
     const { id } = this.state;
     const { classes, userData } = this.props;
-    const data =
-      userData.data.length !== 0
-        ? userData.data.map((item) => ({
-            id: item[0],
-            fname: item[1],
-            lname: item[2],
-            email: item[3],
-            gender: item[4],
-            phone: item[5],
-          }))
-        : [];
-    const userInfo = data.find((item) => item.id == id);
+    const userInfo = userData.data.find((item) => item.id === id);
     return (
       <Fragment>
         <div className={classes.container}>
-          {userData.data.length !== 0 ? (
+          {userInfo !== undefined ? (
             <div>
               <h1 style={{ margin: "50px" }}>
                 {userInfo.fname} {userInfo.lname}
@@ -74,7 +63,11 @@ class UserDetail extends Component {
               <div>Phone: {userInfo.phone}</div>
             </div>
           ) : null}
-          <button className={classes.btnDiv} type="button" onClick={this.handleBack}>
+          <button
+            className={classes.btnDiv}
+            type="button"
+            onClick={this.handleBack}
+          >
             Go Back
           </button>
         </div>

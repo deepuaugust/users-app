@@ -43,19 +43,6 @@ class UserList extends Component {
    */
   render() {
     const { classes, userData } = this.props;
-    let userInfo =
-      userData.data.length !== 0
-        ? userData.data.map((item) => ({
-            id: item[0],
-            fname: item[1],
-            lname: item[2],
-            email: item[3],
-            gender: item[4],
-            phone: item[5],
-          }))
-        : [];
-    userInfo = userInfo.filter(item => !isNaN(Number(item.id)) && item.id !== "");
-    console.log(userInfo);
     return (
       <Fragment>
         <div className={classes.container}>
@@ -71,7 +58,7 @@ class UserList extends Component {
                 <th>Phone</th>
               </tr>
             </thead>
-            {userInfo.map((value, index) => (
+            {userData.data.map((value, index) => (
               <tbody key={index} onClick={() => this.handleRoute(value.id)}>
                 <tr>
                   <td>{value.id}</td>
