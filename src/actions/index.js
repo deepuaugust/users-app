@@ -1,63 +1,32 @@
 import * as actionTypes from './actionTypes';
 
 /**
- * @description - Function to get user details.
+ * @description - Function to get user list.
  * @returns {Object} - Actions type.
  */
-export const getUserDetails = (data) => ({
-  type: actionTypes.USER_DETAILS.GET,
+export const getUserList = (data) => ({
+  type: actionTypes.USER_LIST.GET,
   payload: data,
 });
 
 /**
- * @description - Function to save user detail.
+ * @description - Function to save user list.
  * @param {Object} data - Payload data.
  * @returns {Object} - Returns type and payload.
  */
-export function storeUserDetails(data) {
+export function storeUserList(data) {
   return {
-    type: actionTypes.USER_DETAILS.SUCCESS,
+    type: actionTypes.USER_LIST.SUCCESS,
     payload: data,
   };
 }
 
 /**
- * @description - Function to clear user detail.
+ * @description - Function to clear user list.
  * @returns {Object} - Returns type and payload.
  */
-export function clearUserDetails() {
+export function clearUserList() {
   return {
-    type: actionTypes.USER_DETAILS.CLEAR,
-  };
-}
-
-/**
- * @description - Function to get repo details.
- * @returns {Object} - Actions type.
- */
-export const getRepoDetails = (data) => ({
-  type: actionTypes.REPO_DETAILS.GET,
-  payload: data,
-});
-
-/**
- * @description - Function to save repo detail.
- * @param {Object} data - Payload data.
- * @returns {Object} - Returns type and payload.
- */
-export function storeRepoDetails(data) {
-  return {
-    type: actionTypes.REPO_DETAILS.SUCCESS,
-    payload: data,
-  };
-}
-
-/**
- * @description - Function to clear repo detail.
- * @returns {Object} - Returns type and payload.
- */
-export function clearRepoDetails() {
-  return {
-    type: actionTypes.REPO_DETAILS.CLEAR,
+    type: actionTypes.USER_LIST.CLEAR,
   };
 }

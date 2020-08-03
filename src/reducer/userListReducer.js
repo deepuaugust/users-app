@@ -1,37 +1,37 @@
-import { REPO_DETAILS } from '../actions/actionTypes';
+import { USER_LIST } from '../actions/actionTypes';
 
 const initialState = {
   loading: true,
   error: false,
-  data: {},
+  data: [],
   errormsg: '',
 };
 /**
- * @description Reducer for repo details.
+ * @description Reducer for user list.
  * @param {Object} state - State.
  * @param {Object} action - Action.
  * @returns {Object} State.
  */
-const repoDetailsReducer = (state = initialState, action) => {
+const userListReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REPO_DETAILS.SUCCESS:
+    case USER_LIST.SUCCESS:
       return Object.assign({}, state, {
-        loading: false,
+        loading: true,
         data: action.payload,
         error: false,
         errormsg: "",
       });
-    case REPO_DETAILS.FAIL:
+    case USER_LIST.FAIL:
       return Object.assign({}, state, {
         errormsg: action.message,
-        data: {},
+        data: [],
         error: true,
         loading: false,
       });
-    case REPO_DETAILS.CLEAR:
+    case USER_LIST.CLEAR:
       return Object.assign({}, state, {
         errormsg: "",
-        data: {},
+        data: [],
         error: false,
         loading: false,
       });
@@ -40,4 +40,4 @@ const repoDetailsReducer = (state = initialState, action) => {
   }
 };
 
-export default repoDetailsReducer;
+export default userListReducer;
